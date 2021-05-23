@@ -32,7 +32,7 @@ class PhoneDataAdapter(var context: Context, private var searchResults: List<Pho
         holder.itemView.app_name.text = searchResults.get(position).appName
         holder.itemView.package_name.text = searchResults.get(position).packageName
         holder.itemView.class_name.text = searchResults.get(position).className
-        holder.itemView.version.text = searchResults.get(position).name + " | " + searchResults.get(
+        holder.itemView.version.text = searchResults.get(position).versionName + " | " + searchResults.get(
                 position
         ).code
         holder.itemView.setOnClickListener {

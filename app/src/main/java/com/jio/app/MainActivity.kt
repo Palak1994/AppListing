@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -27,14 +26,12 @@ class MainActivity : AppCompatActivity() {
         var menu1 = menu.findItem(R.id.action_search)
          searchView = menu1.actionView as SearchView
         searching(searchView)
-
-
         return true
     }
 
     override fun onResume() {
         super.onResume()
-        list = PhoneList.getInstalledApps(false, this).sortedBy { it.appName?.toUpperCase() }
+        list = PhoneList.getInstalledApps( this).sortedBy { it.appName?.toUpperCase() }
         adapter = PhoneDataAdapter(this, list)
 
         phone_list.apply {
@@ -58,9 +55,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_search -> true
             else -> super.onOptionsItemSelected(item)
